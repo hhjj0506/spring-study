@@ -2,6 +2,7 @@ package org.example.springboot.domain.posts;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import org.example.springboot.domain.BaseTimeEntity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -12,7 +13,7 @@ import javax.persistence.Id;
 @Getter // 클래스 내 모든 필드의 Getter 자동 생성 완전 편함 짱짱
 @NoArgsConstructor // 생성자 자동 추가 (여기선 public Posts() {})
 @Entity// DB의 테이블과 연결될 클래스를 칭한다. 클래스의 이름이 변환되어 테이블의 이름이 된다.
-public class Posts {
+public class Posts extends BaseTimeEntity {
 
     @Id // 테이블의 PK가 된다
     @GeneratedValue(strategy = GenerationType.IDENTITY) // PK의 생성 규칙을 나타낸다.
