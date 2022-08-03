@@ -4,6 +4,13 @@
     <div class="row">
         <div class="col-md-6">
             <a href="/posts/save" role="button" class="btn btn-primary">글 등록</a>
+            {{#userName}} <!-- mustache에는 if문이 없어 항상 최종값을 넘겨줘야 한다. 따라서 userName만 넘겨 존재하면 이름과 로그아웃 버튼을 표시한다-->
+                Logged in as: <span id="user">{{userName}}</span>
+                <a href="/logout" class="btn btn-info active" role="button">Logout</a>
+            {{/userName}}
+            {{^userName}} <!-- userName이 존재하지 않는 경우에는 로그인 버튼을 표시한다. -->
+                <a href="/oauth2/authorization/google" class="btn btn-success active" role="button">Google Login</a>
+            {{/userName}}
         </div>
     </div>
     <br>
